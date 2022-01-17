@@ -62,4 +62,5 @@ We believe that Expirare can thrive with new features. In the future, we have su
 5. Set up user accounts to personalize your selection
 6. Use machine learning to learn your favourite recipe and personalise your suggestions
 
+## The Crew:
 Application made by: Zoeb Gaurani, Azaan Wadhwania, Kamran Alam, Felix Zhao
