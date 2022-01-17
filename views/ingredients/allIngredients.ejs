@@ -1,0 +1,59 @@
+<% layout('layout/boilerplate') %>
+    <div class="row justify-content-md-center align-items-center mt-3">
+        <table class="align-self-center">
+            <thead>
+                <tr>
+                    <th scope="col">Days to Expiry</th>
+                    <th scope="col">Item</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <form action="/food" method="POST" class="d-inline">
+                        <th scope="row" class="px-2 py-2">
+                            <div class="form-group">
+                                <input type="date" id="ing-lifespan" name="lifespan" style="padding:0.5em; border-radius: 2em; " />
+                            </div>
+
+                        </th>
+                        <td class="px-2 py-2">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="ing-title" placeholder="Enter Item" name="name" style="padding:0.5em; border-radius: 2em; " />
+                            </div>
+                        </td>
+                        <td class="px-2 py-2">
+                            <button type="submit" class="btn btn-outline-success ms-2" style="border-radius: 2em; ">Submit</button>
+                        </td>
+                    </form>
+                </tr>
+                <% for(let ingredient of list) { %>
+                    <tr>
+                        <th scope="row" class="px-2 py-2">
+                            <% if((Math.floor((ingredient.lifeSpan - Date.now())/(86400000)) - 30) <= 0) { %>
+                                <span style="color: #F66A67;">
+                                    <%= Math.floor((ingredient.lifeSpan - Date.now())/(86400000)) - 30%>
+                                </span>
+                                <% } else { %>
+
+                                    <%= Math.floor((ingredient.lifeSpan - Date.now())/(86400000)) - 30%>
+                                        <% } %>
+                        </th>
+                        <td class="px-2 py-2">
+                            <% if((Math.floor((ingredient.lifeSpan - Date.now())/(86400000)) - 30) <= 0) { %>
+                                <span style="color: #F66A67;"><%= ingredient.name %></span>
+                                <% } else { %>
+
+                                    <%= ingredient.name %>
+                                        <% } %>
+
+                        </td>
+                        <td class="px-2 py-2">
+                            <form action="/food/<%= ingredient._id %>?_method=DELETE" method="POST" class="d-inline">
+                                <button class="btn btn-outline-danger ms-2" style="border-radius: 2em; ">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <% } %>
+            </tbody>
+        </table>
+    </div>
