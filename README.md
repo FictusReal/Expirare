@@ -61,3 +61,5 @@ We believe that Expirare can thrive with new features. In the future, we have su
 4. Add other recipes to your local database
 5. Set up user accounts to personalize your selection
 6. Use machine learning to learn your favourite recipe and personalise your suggestions
+
+Application made by: Zoeb Gaurani, Azaan Wadhwania, Kamran Alam, Felix Zhao
